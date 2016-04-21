@@ -4,7 +4,6 @@
 
 var kartotekaApp = angular.module('kartotekaApp', [
   'ngRoute',
-  'firebase',
   'kartotekaControllers',
   'kartotekaFilters',
   'kartotekaServices'
@@ -13,16 +12,11 @@ var kartotekaApp = angular.module('kartotekaApp', [
 kartotekaApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/', {
-        templateUrl: 'partials/intro.html',
-         controller: 'AuthCtrl'
-      }).
       when('/users', {
         templateUrl: 'partials/user-list.html',
         controller: 'UserListCtrl'
       }).
       otherwise({
-        redirectTo: '/' 
+        redirectTo: '/users' 
       });
-      // $locationProvider.hashPrefix('!');
   }]);

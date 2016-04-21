@@ -18,7 +18,7 @@
   "homepage": "https://github.com/ego-web/table5#readme",
   "devDependencies": {
     "bower": "^1.7.9",
-    "browser-sync": "^2.12.1",
+    "browser-sync": "^2.12.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-imagemin": "^2.4.0",
