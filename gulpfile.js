@@ -1,5 +1,5 @@
 var gulp = require("gulp"),
-browserSync = require('browser-sync')
+browserSync = require('browser-sync');
  
 gulp.task('server', function () {
   browserSync({
@@ -24,5 +24,5 @@ gulp.task('watch', function(){
     'app/user_photo/**/*.json',
     'app/js/**/*.js'
     ]).on('change', browserSync.reload);
-})
+});
 gulp.task('default', [ 'server', 'watch' ]);
