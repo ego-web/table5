@@ -1,0 +1,256 @@
+/* app css stylesheet */
+
+
+body {
+}
+
+p {
+  word-wrap: break-word;
+}
+.mainContainer {
+  padding: 0;
+  margin: 0;
+  background: radial-gradient(#F5F5F5 15%, transparent 16%) 0 0, radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px;
+  background-color: #CBD3D7;
+  background-size: 12px 12px;
+}
+
+.users {
+  list-style: none;
+}
+h1 {
+  border-bottom: 1px solid gray;
+}
+a:hover{
+  text-decoration:none;
+}
+.viewContent{
+ width: 100%;
+ display: block;
+}
+.viewContent--wrapper {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  max-width: 1200px;
+
+}
+/*------------------
+/*      Intro
+/*------------------
+*/
+.introContainer{
+  display: block;
+  height: 100vh;
+  color: #6F6F6F;
+}
+
+.intro-text{
+  display: block;
+  height:200px;
+  width: 200px;
+  margin: 15vh auto;
+}
+.intro-img{
+  margin-left: -50%;
+}
+.intro-text-txt{
+    // display: block;
+    text-align: left;
+  }
+/*------------------
+/*      Header nav
+/*------------------
+*/
+.searchForm{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin-bottom: 20px;
+  background: #E7E7E4;
+  padding: 10px
+}
+.searchForm--wrapper{
+  max-width: 800px;
+  margin: 0 auto;
+}
+.searchForm--wrapper .glyphicon{
+  top: 6px ; 
+  padding: 3px 0 0 1px;
+  margin-right: 10px;
+}
+.searchForm--wrapper .glyphicon-remove{
+  color: red;
+}
+.searchForm--wrapper .glyphicon.active{
+  color:#fff;
+}
+.searchForm--form{
+  display: inline-block;
+}
+.searchForm>div>span {
+  color: #fff; 
+}
+.searchForm--form>input, .searchForm--form>select{
+  display: inline-block;
+  color: #333;
+  line-height: 1;
+  margin-right: 25px;
+}
+.bar {
+  display: inline-block;
+  min-width: 90px;
+  font-size: 24px;
+  color: #428bca;
+  margin-left: 25px;
+}
+.bar_right{
+  float: right;
+}
+.bar >a{
+  cursor: pointer;
+}
+
+/*------------------
+/*       User list
+/*------------------
+*/
+.table{
+  background-color: #CBD3D7;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  border-radius: 4px;
+}
+.table>.table-hover{
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  border-radius: 4px;
+}
+/*------------------
+/*      User grid
+/*------------------
+*/
+.grid{
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;  
+  margin-left: 75px;
+}
+.grid ul{
+  display: block;
+  position: relative;
+  margin-left: -33px; 
+  float: left;
+}
+.fonGroup{
+  display: block;
+  position: relative;
+  padding: 8px;
+  background-color: rgba(66, 139, 202, 0.5);
+  border-radius: 8px;
+}
+.grid li{
+  width: 200px;
+  display: block;
+  position: relative;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+.grid a.thumb{
+  height: 55px;
+  width: 55px;
+  margin-bottom: 0px;
+}
+.grid p:last-child{
+  background-color: #CBD3D7;
+  box-shadow: -11px 0px 0 #CBD3D7, 11px 0px 0 #CBD3D7;
+    margin-bottom: -2px;
+    margin-top: 15px;
+}
+.thumb {
+  float: left;
+  margin: -0.5em 1em 1.5em 0;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+.checkbox{
+  float: left;
+  margin: -10px 0 0 13px;
+}
+.users li:before {
+ cursor:  pointer;
+ content: ' ';
+ position: absolute;
+ width: 100%; 
+ min-height: 115px;
+ margin: -10px 0px 0px -10px;
+ background:rgba(150,150,200,0.1);
+}
+.users li:first-child:before {
+  display: none;
+}
+.users li:hover:before {
+  display: none;
+  cursor:  pointer;
+  content: ' ';
+  position: absolute;
+  width: 100%; 
+  min-height: 115px;
+  margin: -10px 0px 0px -10px;
+  background:rgba(150,150,200,0.1);
+}
+.users li:hover{
+  box-shadow: none;
+}
+/*------------------
+/*      Trello view
+/*------------------
+*/
+.trello{
+}
+.trello li{
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  background-color: #fff;
+  margin: 0 1.5em 1.5em 0;
+  padding: 1em;
+  width: 150px;
+  list-style-type: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+.trello li:after {
+    content: '\A';
+    position: absolute;
+    width: 110%;
+    height: 104%;
+    top: -2%;
+    left: -5%;
+    padding: 22px;
+  background-color: rgba(66,139,202,0.15);
+  border: 8px solid rgba(66, 139, 202, 0.25);
+    border-radius: 8px;
+} 
+.trello li:hover:after {
+    display: none;
+}
+.trello img{
+  float: left;
+  height: 120px;
+}
+
+.trello .user_position{
+  background-color: #CBD3D7;
+  box-shadow: -14px 0px 0 #CBD3D7, 14px 0px 0 #CBD3D7;
+  }
+  form span{
+    font-style: italic;
+font-size: 10px;  
+}
+.modal-footer input{
+  margin-right: 5px;
+}

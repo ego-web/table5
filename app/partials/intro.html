@@ -1,0 +1,64 @@
+  <div class="introContainer container-fluid">
+
+	<!-- <div class="intro-text"> -->
+	<!-- Модальное окно -->
+	<div class="modal" id="myModal" tabindex="-1" role="dialog" data-backdrop="false" style="display: block;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- Заголовок модального окна -->
+				<div class="modal-header">
+					<!-- <button type="button" class="close" data-dismiss="modal">×</button> -->
+					<h4 class="modal-title" id="myModalLabel">Регистрация</h4>
+				</div>
+				<!-- Основная часть модального окна, содержащая форму для регистрации -->
+				<div class="modal-body">
+					<!-- Форма для регистрации -->
+					<form role="form" class="form-horizontal">
+						<!-- Блок для ввода логина -->
+						<div class="form-group has-feedback">
+							<label for="login" class="control-label col-xs-3">Логин:</label>
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>         
+									<input type="text" class="form-control" required="required" name="login" pattern="[A-Za-z]{6,}" ng-model="user.login">
+								</div>
+								<span class="glyphicon form-control-feedback"></span>
+							</div>
+						</div>
+						<!-- Блок для ввода email -->
+						<div class="form-group has-feedback">
+							<label for="email" class="control-label col-xs-3">Email:</label>
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+									<input type="email" class="form-control" placeholder="admin@admin.ru" required="required" name="email" ng-model="user.email">
+								</div>
+								<span class="glyphicon form-control-feedback"></span>
+							</div>
+						</div>
+						<!-- Блок для ввода пароля -->
+						<div class="form-group has-feedback">
+							<label for="login" class="control-label col-xs-3">Пароль:</label>
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>         
+									<input type="password" class="form-control" required="required" name="password" ng-model="user.password"  placeholder="Password">
+								</div>
+								<span class="glyphicon form-control-feedback"></span>
+							</div>
+						</div>
+					<span ng-show="user.anonim===false">* Для доступа к картотеке, необходимо заполнить все поля! Либо зайдите анонимно.</span>
+					
+					</form>
+				</div>
+				<!-- Нижняя часть модального окна -->
+				<div class="modal-footer">
+					
+					<input ng-model="user.anonim" type="checkbox" class="checkbox"/>
+					<p class="pull-left"> Войти анонимно</p>
+					<a class="btn btn-primary"  role="button" ng-click="SignIn($event)">Войти </a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
