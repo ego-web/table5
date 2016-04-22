@@ -1,7 +1,6 @@
 'use strict';
 
 /* Controllers */
-
 var kartotekaControllers = angular.module('kartotekaControllers', []);
 
 kartotekaControllers.controller('UserListCtrl', ['$scope', 'User', /*'Data',*/
@@ -13,16 +12,31 @@ kartotekaControllers.controller('UserListCtrl', ['$scope', 'User', /*'Data',*/
        });
      }
      );
-    // $scope.groupgroup = Data('group');
-    $scope.orderProp = 'id';
-    $scope.layout ='list';
-    $scope.imageUrl ="img/user_photo/u3.gif";
-    $scope.users_group = ["Manager", "Designer","Programmer", "Tester", "Other staff"];
   }]);
 
 
-kartotekaControllers.controller('AuthCtrl', ['$scope', 
-  function($scope) {
-    
-  }]);
+kartotekaControllers.controller('CheckCtrl', ['$scope', '$filter', 
+  function($scope, $filter) {
+   $scope.chkbxs = [
+   {label:"id", val:false, name:'id' },
+   {label:"ФИО", val:false, name:'name' },
+   {label:"Компания", val:false, name:'company' },
+   {label:"ИНН", val:false, name:'inn' },
+   {label:"Кол-во товара", val:false, name:'amount' },
+   {label:"Ср. чек", val:false, name:'arpu' },
+   {label:"Период поставки", val:false, name:'period' },
+   {label:"E-mail", val:false, name:'email' }
+   ];
 
+   $scope.bandChoosed = function() {
+    var trues = $filter("filter")( $scope.chkbxs , {val:true} );
+    var log =[];
+    angular.forEach(trues, function(value, key) {
+    log.push(value);
+    });
+    $scope.log = log;
+    // console.log(log.name);
+     if (trues.length === 5) return true;
+    // $scope.orderProp = log.name;
+   }
+ }]);
