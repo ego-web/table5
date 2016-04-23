@@ -5,8 +5,11 @@
 var kartotekaApp = angular.module('kartotekaApp', [
   'ngRoute',
   'kartotekaControllers',
-  'kartotekaFilters',
   'kartotekaServices'
+ /* ,
+  'ngMaterial',
+  'ngAnimate',
+  'ngAria'*/
 ]);
 
 kartotekaApp.config(['$routeProvider',

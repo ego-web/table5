@@ -8,7 +8,7 @@
         </div>
 
         <div class="searchForm--form">
-          <select data-ng-model="orderProp" class="form-control">
+          <select data-ng-model="sortType" class="form-control">
 
             <option value="{{l.name}}" data-ng-bind="l.label" data-ng-repeat="l in log track by $index"></option>
           </select>
@@ -32,11 +32,12 @@
             <thead>
               <tr >
                 <th><i class="glyphicon glyphicon-ok"></i></th>
-                <th data-ng-bind="l.label" data-ng-repeat="l in log track by $index"></th>
+                <th data-ng-repeat="l in log track by $index" data-ng-bind="l.label" ng-class= "glyphicon glyphicon-ok" ng-click= "sortTypeFun(l.name)">
+                </th>
               </tr>
             </thead>
             <tbody>
-              <tr data-ng-repeat="user in users_list | filter:query | orderBy:orderProp">
+              <tr data-ng-repeat="user in users_list | filter:query | orderBy:sortType:sortReverse">
                 <td><input type="checkbox"></td>
                 <td data-ng-bind="user[l.name]" data-ng-repeat="l in log track by $index"></td>
               </tr>
@@ -48,13 +49,13 @@
   </div>
 
 <!-- /.modal-content -->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div id="mySmallModalLabel" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" >
   <div class="modal-dialog modal-sm">
     <form ng-submit="AddPost()">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h4 class="modal-title" id="mySmallModalLabel">Выберите 5 параметров:</h4>
+          <h4 class="modal-title">Выберите 5 параметров:</h4>
         </div>
 
         <div class="modal-body">
@@ -64,7 +65,7 @@
           </div><br>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Выбрать</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal">Выбрать</button>
           </div>
 
         </div>
@@ -73,4 +74,6 @@
   </div>
 </div>
 </div>
-
+<script>
+   $("#mySmallModalLabel").modal('show');
+</script>

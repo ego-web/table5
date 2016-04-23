@@ -3,8 +3,9 @@
 /* Controllers */
 var kartotekaControllers = angular.module('kartotekaControllers', []);
 
-kartotekaControllers.controller('UserListCtrl', ['$scope', 'User', /*'Data',*/
-  function($scope, User/*, Data*/) {
+kartotekaControllers.controller('UserListCtrl', ['$scope', 'User',
+ 
+  function($scope, User) {
     $scope.users_list = User.query(
       function(data){
        var i = 0;
@@ -17,6 +18,9 @@ kartotekaControllers.controller('UserListCtrl', ['$scope', 'User', /*'Data',*/
 
 kartotekaControllers.controller('CheckCtrl', ['$scope', '$filter', 
   function($scope, $filter) {
+  $scope.sortType     = 'name';
+  $scope.sortReverse  = false;  
+
    $scope.chkbxs = [
    {label:"id", val:false, name:'id' },
    {label:"ФИО", val:false, name:'name' },
@@ -27,7 +31,11 @@ kartotekaControllers.controller('CheckCtrl', ['$scope', '$filter',
    {label:"Период поставки", val:false, name:'period' },
    {label:"E-mail", val:false, name:'email' }
    ];
-
+console.log($scope.sortType);
+    $scope.sortTypeFun= function(name) {
+      $scope.sortType=name;
+       $scope.sortReverse = !$scope.sortReverse;
+      }
    $scope.bandChoosed = function() {
     var trues = $filter("filter")( $scope.chkbxs , {val:true} );
     var log =[];
@@ -35,8 +43,6 @@ kartotekaControllers.controller('CheckCtrl', ['$scope', '$filter',
     log.push(value);
     });
     $scope.log = log;
-    // console.log(log.name);
      if (trues.length === 5) return true;
-    // $scope.orderProp = log.name;
    }
  }]);
