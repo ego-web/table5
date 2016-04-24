@@ -1,0 +1,28 @@
+<div id="mySmallModalLabel" class="modal fade bs-example-modal-sm " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" >
+  <div class="modal-dialog modal-sm">
+    <form ng-submit="AddPost()">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Выберите 5 параметров:</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class ="chkform_modal" ng-repeat="chk in chkbxs track by $index">
+            <input type="checkbox" id="{{chk.name}}" ng-model="chk.val"  ng-disabled="bandChoosed() && !chk.val">
+            <label for="{{chk.name}}">{{chk.label}}</label>
+          </div><br>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg" data-dismiss="modal" ng-click="reset()">Выбрать</button>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<script>
+ $("#mySmallModalLabel").modal('show');
+</script>

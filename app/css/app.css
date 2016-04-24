@@ -100,7 +100,7 @@ a:hover{
 .bar {
   display: inline-block;
   min-width: 90px;
-  font-size: 24px;
+  font-size: 30px;
   color: #428bca;
   margin-left: 25px;
 }
@@ -137,133 +137,30 @@ th:hover{
   background-color: #C5C8CA;
   
 }
-/*------------------
-/*      User grid
-/*------------------
-*/
-.grid{
-  width: 100%;
-  display: inline-block;
-  position: relative;
-  margin: 0 auto;  
-  margin-left: 75px;
-}
-.grid ul{
-  display: block;
-  position: relative;
-  margin-left: -33px; 
-  float: left;
-}
-.fonGroup{
-  display: block;
-  position: relative;
-  padding: 8px;
-  background-color: rgba(66, 139, 202, 0.5);
-  border-radius: 8px;
-}
-.grid li{
-  width: 200px;
-  display: block;
-  position: relative;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-  margin-bottom: 10px;
-}
-.grid a.thumb{
-  height: 55px;
-  width: 55px;
-  margin-bottom: 0px;
-}
-.grid p:last-child{
-  background-color: #CBD3D7;
-  box-shadow: -11px 0px 0 #CBD3D7, 11px 0px 0 #CBD3D7;
-    margin-bottom: -2px;
-    margin-top: 15px;
-}
-.thumb {
-  float: left;
-  margin: -0.5em 1em 1.5em 0;
-  padding-bottom: 1em;
-  height: 100px;
-  width: 100px;
-}
-.checkbox{
-  float: left;
-  margin: -10px 0 0 13px;
-}
-.users li:before {
- cursor:  pointer;
- content: ' ';
- position: absolute;
- width: 100%; 
- min-height: 115px;
- margin: -10px 0px 0px -10px;
- background:rgba(150,150,200,0.1);
-}
-.users li:first-child:before {
-  display: none;
-}
-.users li:hover:before {
-  display: none;
-  cursor:  pointer;
-  content: ' ';
-  position: absolute;
-  width: 100%; 
-  min-height: 115px;
-  margin: -10px 0px 0px -10px;
-  background:rgba(150,150,200,0.1);
-}
-.users li:hover{
-  box-shadow: none;
-}
-/*------------------
-/*      Trello view
-/*------------------
-*/
-.trello{
-}
-.trello li{
-  display: inline-block;
-  position: relative;
-  vertical-align: top;
-  background-color: #fff;
-  margin: 0 1.5em 1.5em 0;
-  padding: 1em;
-  width: 150px;
-  list-style-type: none;
-  border-radius: 4px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-}
 
-.trello li:after {
-    content: '\A';
-    position: absolute;
-    width: 110%;
-    height: 104%;
-    top: -2%;
-    left: -5%;
-    padding: 22px;
-  background-color: rgba(66,139,202,0.15);
-  border: 8px solid rgba(66, 139, 202, 0.25);
-    border-radius: 8px;
-} 
-.trello li:hover:after {
-    display: none;
-}
-.trello img{
-  float: left;
-  height: 120px;
-}
-
-.trello .user_position{
-  background-color: #CBD3D7;
-  box-shadow: -14px 0px 0 #CBD3D7, 14px 0px 0 #CBD3D7;
-  }
-  form span{
-    font-style: italic;
-font-size: 10px;  
-}
 .modal-footer input{
   margin-right: 5px;
+}
+.chkform_modal:hover{
+  background-color: #CBD3D7;
+ border-radius: 6px;
+ border: 1px solid #AEB5B8;
+}
+
+.chkform_modal{
+padding-left: 10px;
+padding-bottom: -5px;
+margin-bottom: 5px;
+ border-radius: 6px;
+ border: 1px solid #fff;
+}
+.chkform_modal label{
+  width: 90%;
+}
+
+.chkform_modal:active{
+  background-color: #CDCC70
+}
+.paginator{
+      margin-top: -30px;
 }

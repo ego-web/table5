@@ -5,6 +5,7 @@
 var kartotekaApp = angular.module('kartotekaApp', [
   'angularUtils.directives.dirPagination',
   'ngRoute',
+  'firebase',
   'kartotekaControllers',
   'kartotekaServices'
  /* ,

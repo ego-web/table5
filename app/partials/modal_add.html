@@ -1,0 +1,50 @@
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" ng-controller="AddPostCtrl">
+  <div class="modal-dialog modal-sm">
+    <form id ="addPostModal" ng-submit="AddPost()">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="mySmallModalLabel">Добавить персону</h4>
+        </div>
+        <div class="modal-body">
+         <div class="form-group">
+          <span>ID</span>
+          <input type="text" class="form-control" id="id" placeholder="Enter ID" value="" ng-model="article.id">
+        </div>
+        <div class="form-group" >
+          <span >ФИО</span>
+          <input type="text" class="form-control" id="name" placeholder="Enter ФИО" value="" ng-model="article.name" ng-if ="article.id">
+        </div>
+        <div class="form-group">
+          <span>КОМПАНИЯ</span>
+          <input type="text" class="form-control" id="company" placeholder="Enter КОМПАНИЯ" value="" ng-model="article.company" ng-if ="article.name">
+        </div>
+        <div class="form-group">
+          <span >ИНН</span>
+          <input type="text" class="form-control" id="inn" placeholder="Enter ИНН" value="" ng-model="article.inn" ng-if ="article.company">
+        </div> 
+        <div class="form-group">
+          <span>КОЛЧЕСТВО ТОВАРА</span>
+          <input type="text" class="form-control" id="amount" placeholder="Enter КОЛЧЕСТВО ТОВАРА" value="" ng-model="article.amount" ng-if ="article.inn">
+        </div>
+        <div class="form-group">
+          <span >СРЕДНИЙ ЧЕК</span>
+          <input type="text" class="form-control" id="arpu" placeholder="Enter СРДНИЙ ЧЕК" value="" ng-model="article.arpu" ng-if ="article.amount">
+        </div>
+        <div class="form-group">
+          <span >ПЕРИОД ПОСТАВКИ</span>
+          <input type="text" class="form-control" id="period" placeholder="Enter ПЕРИОД ПОСТАВКИ" value="" ng-model="article.period" ng-if ="article.arpu">
+        </div>
+        <div class="form-group">
+          <span>Email</span>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" value="" ng-model="article.email"  ng-if ="article.period">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default"  ng-if ="article.email">Отправить</button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
+</div>
