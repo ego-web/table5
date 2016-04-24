@@ -1,17 +1,20 @@
 <div class="container-fluid" ng-controller="CheckCtrl">
-  <div class="row">
+  <div class="row" ng-controller="PaginatorCtrl">
     <div class="searchForm">
       <div class="searchForm--wrapper clearfix">
 
-        <div class="searchForm--form">
-          <input data-ng-model="query" class="form-control" data-ng-model-options="{debounce: 150}" placeholder="Search">
+        <div class="searchForm--form col-md-2">
+          <input data-ng-model="query2" class="form-control" data-ng-model-options="{debounce: 150}" placeholder="Search">
         </div>
 
-        <div class="searchForm--form">
+        <div class="searchForm--form col-md-2">
           <select data-ng-model="sortType" class="form-control">
-
             <option value="{{l.name}}" data-ng-bind="l.label" data-ng-repeat="l in log track by $index"></option>
           </select>
+        </div>
+
+        <div class="searchForm--form col-md-2">
+          <input type="number" min="1" max="100" class="form-control" ng-model="itemsPage">
         </div>
 
         <div class="bar bar_right">
@@ -32,21 +35,26 @@
             <thead>
               <tr >
                 <th><i class="glyphicon glyphicon-ok"></i></th>
-                <th data-ng-repeat="l in log track by $index" data-ng-bind="l.label" ng-class= "glyphicon glyphicon-ok" ng-click= "sortTypeFun(l.name)">
+                <th data-ng-repeat="l in log track by $index" data-ng-bind="l.label" ng-click= "sortTypeFun(l.name)">
+
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr data-ng-repeat="user in users_list | filter:query | orderBy:sortType:sortReverse">
+             <tr dir-paginate="user in users_list | filter:query2 | orderBy:sortType:sortReverse |
+              itemsPerPage: itemsPage">
                 <td><input type="checkbox"></td>
                 <td data-ng-bind="user[l.name]" data-ng-repeat="l in log track by $index"></td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
-  </div>
+
+<dir-pagination-controls template-url="../partials/dirPagination.tpl.html" boundary-links=boundaryLinks max-size=maxSize ></dir-pagination-controls>
+
+   </div>
+ </div>
+</div>
 
 <!-- /.modal-content -->
 <div id="mySmallModalLabel" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" >
@@ -75,5 +83,5 @@
 </div>
 </div>
 <script>
-   $("#mySmallModalLabel").modal('show');
+ $("#mySmallModalLabel").modal('show');
 </script>

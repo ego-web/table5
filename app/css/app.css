@@ -124,6 +124,19 @@ a:hover{
   box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
   border-radius: 4px;
 }
+th:after{
+   content: '\A';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    left: 0;
+    img:  
+}
+th:hover{
+  background-color: #C5C8CA;
+  
+}
 /*------------------
 /*      User grid
 /*------------------

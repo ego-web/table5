@@ -3,6 +3,7 @@
 /* App Module */
 
 var kartotekaApp = angular.module('kartotekaApp', [
+  'angularUtils.directives.dirPagination',
   'ngRoute',
   'kartotekaControllers',
   'kartotekaServices'
