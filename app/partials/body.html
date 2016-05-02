@@ -12,7 +12,7 @@
           <tbody>
            <tr dir-paginate="user in users_list | filter:query2 | orderBy:sortType:sortReverse |
            itemsPerPage: itemsPage">
-           <td><input type="checkbox"></td>
+           <td><md-checkbox aria-label="_row"></md-checkbox></td>
            <td data-ng-bind="user[l.name]" data-ng-repeat="l in log track by $index"></td>
          </tr>
        </tbody>

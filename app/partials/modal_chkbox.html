@@ -4,17 +4,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h4 class="modal-title">Выберите 5 параметров:</h4>
-        </div>
+          <h4 class="modal-title">Выберите 5 параметров: </h4><br>
+                 <md-divider  ></md-divider><br>
+ </div>
 
         <div class="modal-body">
-          <div class ="chkform_modal" ng-repeat="chk in chkbxs track by $index">
-            <input type="checkbox" id="{{chk.name}}" ng-model="chk.val"  ng-disabled="bandChoosed() && !chk.val">
-            <label for="{{chk.name}}">{{chk.label}}</label>
+          <div  ng-repeat="chk in chkbxs track by $index"><!-- class ="chkform_modal" -->
+            <md-checkbox class="green" id="{{chk.name}}" ng-model="chk.val"  ng-disabled="bandChoosed() && !chk.val" aria-label="{{chk.label}}">{{chk.label}}</md-checkbox>
+            <!-- <label for="{{chk.name}}">{{chk.label}}</label> -->
           </div><br>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg" data-dismiss="modal" ng-click="reset()">Выбрать</button>
+          <md-divider  ></md-divider>
+            <md-button type="submit" class="md-raised md-primary md-lg" data-dismiss="modal" ng-click="reset()">Выбрать</md-button>
           </div>
 
         </div>

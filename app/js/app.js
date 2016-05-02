@@ -1,17 +1,17 @@
 'use strict';
+$.material.init();
 
 /* App Module */
 
 var kartotekaApp = angular.module('kartotekaApp', [
-  'angularUtils.directives.dirPagination',
-  'ngRoute',
-  'firebase',
-  'kartotekaControllers',
-  'kartotekaServices'
- /* ,
-  'ngMaterial',
-  'ngAnimate',
-  'ngAria'*/
+  'angularUtils.directives.dirPagination'
+  ,'ngRoute'
+  ,'firebase'
+  ,'kartotekaControllers'
+  ,'kartotekaServices'
+  ,'ngMaterial'
+  ,'ngAnimate'
+  ,'ngAria'
 ]);
 
 kartotekaApp.config(['$routeProvider',
