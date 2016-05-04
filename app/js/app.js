@@ -18,7 +18,7 @@ kartotekaApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/users', {
-        templateUrl: 'partials/user-list.html',
+        templateUrl: 'partials/body.html',
         controller: 'AddPostCtrl'
       }).
       otherwise({
