@@ -19,7 +19,7 @@ kartotekaApp.config(['$routeProvider',
     $routeProvider.
       when('/users', {
         templateUrl: 'partials/user-list.html',
-        controller: 'UserListCtrl'
+        controller: 'AddPostCtrl'
       }).
       otherwise({
         redirectTo: '/users' 

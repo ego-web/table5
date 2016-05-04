@@ -1,55 +1,46 @@
-<!-- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" ng-controller="AddPostCtrl">
-  <div class="modal-dialog modal-sm">
-    <form id ="addPostModal" ng-submit="AddPost()"> -->
-<!--          <div ng-controller="AppCtrl">
- <md-button ng-click="toggleRight()"
-   ng-hide="isOpenRight()"
-   class="md-primary">
-   Toggle right
- </md-button> -->
 <div ng-controller="AppCtrl">
  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
  <md-content ng-controller="LeftCtrl" layout="column">
-<md-toolbar class="md-theme-light">
- <h1 class="md-toolbar-tools">Добавить персону</h1></md-toolbar>
+<!-- <md-toolbar class="md-theme-light">
+ <h1 class="md-toolbar-tools">Добавить персону</h1></md-toolbar> -->
   <md-button type="button" class="closeBtn" ng-click="close()">×</md-button>
-<form>
+<form   > 
   <div class="modal-content">
-    <div class="modal-body"><br>
+    <div class="modal-body" ng-controller="AddPostCtrl"><br>
      <div class="form-group">
-      <span>ID</span>
-      <input type="text" class="form-control" id="id" placeholder="Enter ID" value="" ng-model="article.id">
+      <!-- <span ng-click="checkInput()">ID</span> -->
+      <input type="text" class="form-control" id="id" placeholder="Введите ID" ng-model="aid">
     </div>
     <div class="form-group" >
-      <span >ФИО</span>
-      <input type="text" class="form-control" id="name" placeholder="Enter ФИО" value="" ng-model="article.name" ng-if ="article.id">
+      <!-- <span >ФИО</span> -->
+      <input type="text" class="form-control" id="name" placeholder="Введите ФИО" ng-model="aname" >
     </div>
     <div class="form-group">
-      <span>КОМПАНИЯ</span>
-      <input type="text" class="form-control" id="company" placeholder="Enter КОМПАНИЯ" value="" ng-model="article.company" ng-if ="article.name">
+      <!-- <span>КОМПАНИЯ</span> -->
+      <input type="text" class="form-control" id="company" placeholder="Введите ИМЯ КОМПАНИИ" ng-model="acompany" >
     </div>
     <div class="form-group">
-      <span >ИНН</span>
-      <input type="text" class="form-control" id="inn" placeholder="Enter ИНН" value="" ng-model="article.inn" ng-if ="article.company">
+      <!-- <span >ИНН</span> -->
+      <input type="text" class="form-control" id="inn" placeholder="Введите ИНН" ng-model="ainn" >
     </div> 
     <div class="form-group">
-      <span>КОЛЧЕСТВО ТОВАРА</span>
-      <input type="text" class="form-control" id="amount" placeholder="Enter КОЛЧЕСТВО ТОВАРА" value="" ng-model="article.amount" ng-if ="article.inn">
+      <!-- <span>КОЛЧЕСТВО ТОВАРА</span> -->
+      <input type="text" class="form-control" id="amount" placeholder="Введите КОЛЧЕСТВО ТОВАРА" ng-model="aamount" >
     </div>
     <div class="form-group">
-      <span >СРЕДНИЙ ЧЕК</span>
-      <input type="text" class="form-control" id="arpu" placeholder="Enter СРДНИЙ ЧЕК" value="" ng-model="article.arpu" ng-if ="article.amount">
+      <!-- <span >СРЕДНИЙ ЧЕК</span> -->
+      <input type="text" class="form-control" id="arpu" placeholder="Введите СРДНИЙ ЧЕК" ng-model="aarpu" >
     </div>
     <div class="form-group">
-      <span >ПЕРИОД ПОСТАВКИ</span>
-      <input type="text" class="form-control" id="period" placeholder="Enter ПЕРИОД ПОСТАВКИ" value="" ng-model="article.period" ng-if ="article.arpu">
+      <!-- <span >ПЕРИОД ПОСТАВКИ</span> -->
+      <input type="text" class="form-control" id="period" placeholder="Введите ПЕРИОД ПОСТАВКИ" ng-model="aperiod" >
     </div>
     <div class="form-group">
-      <span>Email</span>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" value="" ng-model="article.email"  ng-if ="article.period">
+      <!-- <span>Email</span> -->
+      <input type="email" class="form-control" id="email" placeholder="Введите EMAIL" ng-model="aemail" >
     </div>
     <div class="form-group">
-      <md-button type="submit" ng-if ="article.email">Отправить</md-button>
+      <md-button type="submit" ng-click="AddPost()">Отправить</md-button>
     </div>
 
   </div>
@@ -59,7 +50,3 @@
 </md-content>
 </md-sidenav>
 </div>
-<!-- </div> -->
-<!--   </form>
-</div>
-</div> -->

@@ -1,6 +1,6 @@
    <div class="viewContent ">
     <div class="viewContent--wrapper ">
-      <div class="list" >
+      <div class="list" ng-controller="AddPostCtrl">
         <table class="table table-striped  table-hover table-bordered  focus-on">
           <thead>
             <tr >
@@ -9,9 +9,9 @@
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
            <tr dir-paginate="user in users_list | filter:query2 | orderBy:sortType:sortReverse |
-           itemsPerPage: itemsPage">
+           itemsPerPage: itemsPage" ng-click="postEdit()" ng-controller="AppCtrl">
            <td><md-checkbox aria-label="_row"></md-checkbox></td>
            <td data-ng-bind="user[l.name]" data-ng-repeat="l in log track by $index"></td>
          </tr>
