@@ -13,6 +13,7 @@ var kartotekaApp = angular.module('kartotekaApp', [
   ,'ngAnimate'
   ,'ngAria'
 ]);
+// kartotekaApp.value('Valu', {});
 
 kartotekaApp.config(['$routeProvider',
   function($routeProvider) {

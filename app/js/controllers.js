@@ -56,10 +56,12 @@ var kartotekaControllers = angular.module('kartotekaControllers', []);
     }
   }]);
 
- kartotekaControllers.controller('AddPostCtrl', ['$scope', 'User', function($scope, User) {
-
-/*        var firebaseObj = new Firebase("https://incandescent-heat-1602.firebaseio.com/suplers");
-$scope.users_list = $firebaseArray(firebaseObj);*/
+ kartotekaControllers.controller('AddPostCtrl', ['$scope', '$rootScope', 'User', '$timeout', '$mdSidenav', '$log', function($scope, $rootScope, User, $timeout, $mdSidenav, $log) {
+ $scope.toggleRight = buildDelayedToggler('right');
+    $scope.toggleLeft = buildToggler('left');
+    $scope.isOpenLeft = function(){
+      return $mdSidenav('left').isOpen();
+    };
 
 /*        $scope.ReadPost = function() {
           firebaseObj.on("child_added", function(snap, prevChildKey) {
@@ -80,7 +82,6 @@ $scope.users_list = $firebaseArray(firebaseObj);*/
           console.log("The read failed: " + errorObject.code);
         });
       };*/
-      // $scope.aid ='555';
       $scope.users_list = User;
 
       $scope.clearInput = function (){
@@ -97,17 +98,13 @@ $scope.users_list = $firebaseArray(firebaseObj);*/
       $scope.checkInput = function (){
         $scope.aid ='3333';
       };
-
+// console.log(Valu)
        $scope.postEdit =function(){
-      $scope.aid=     this.user.id,
-      $scope.aname=   this.user.name,
-      $scope.acompany=this.user.company,
-      $scope.ainn=    this.user.inn,
-      $scope.aamount= this.user.amount,
-      $scope.aarpu=   this.user.arpu,
-      $scope.aperiod= this.user.period,
-      $scope.aemail=  this.user.email
-console.log("click "+$scope.aemail)    
+        $rootScope.user = this.user
+        console.log($rootScope.user)
+        $scope.toggleLeft();
+    
+// console.log("click "+$scope.aemail)    
 
 };
       $scope.AddPost = function() {
@@ -121,30 +118,19 @@ console.log("click "+$scope.aemail)
           arpu: $scope.aarpu,
           period: $scope.aperiod,
           email: $scope.aemail
-        }).then($scope.clearInput());
+        })
+        // .then($scope.clearInput());
       };
-
-    }]);
-
- kartotekaControllers.controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', 'User',
-  function ($scope, $timeout, $mdSidenav, $log, User) {
-    $scope.toggleRight = buildDelayedToggler('right');
-    $scope.toggleLeft = buildToggler('left');
-    $scope.isOpenLeft = function(){
-      return $mdSidenav('left').isOpen();
-    };
-  
-
-    function debounce(func, wait, context) {
+function debounce(func, wait, context) {
       var timer;
       return function debounced() {
         var context = $scope,
         args = Array.prototype.slice.call(arguments);
-        console.log('context '+ context)
         $timeout.cancel(timer);
         timer = $timeout(function() {
           timer = undefined;
           func.apply(context, args);
+        console.log('context '+ context)
         }, wait || 10);
       };
     }
@@ -161,12 +147,21 @@ console.log("click "+$scope.aemail)
     function buildToggler(navID) {
 
       return function() {
+        console.log($rootScope.user)
         $mdSidenav(navID)
         .toggle()
         .then(function () {
+          var user = $rootScope.user
+      $rootScope.aid=     user.id,
+      $rootScope.aname=   user.name,
+      $rootScope.acompany=user.company,
+      $rootScope.ainn=    user.inn,
+      $rootScope.aamount= user.amount,
+      $rootScope.aarpu=   user.arpu,
+      $rootScope.aperiod= user.period,
+      $rootScope.aemail=  user.email
                   // User.postEdit();
-
-          console.log("aname "+$scope.aname)
+          // console.log(Valu.id)
 /*            var obj=$mdSidenav(navID);
             var FRAM = obj.getElementById("id");
             console.log(FRAM)*/
@@ -193,10 +188,80 @@ console.log("click "+$scope.aemail)
       }
     }
   }]);
+    
+
+ /*kartotekaControllers.controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', 'User', 'Valu',
+  function ($scope, $timeout, $mdSidenav, $log, User, Valu) {
+    $scope.toggleRight = buildDelayedToggler('right');
+    $scope.toggleLeft = buildToggler('left');
+    $scope.isOpenLeft = function(){
+      return $mdSidenav('left').isOpen();
+    };
+  
+
+    function debounce(func, wait, context) {
+      var timer;
+      return function debounced() {
+        var context = $scope,
+        args = Array.prototype.slice.call(arguments);
+        $timeout.cancel(timer);
+        timer = $timeout(function() {
+          timer = undefined;
+          func.apply(context, args);
+        console.log('context '+ context)
+        }, wait || 10);
+      };
+    }
+
+     function buildDelayedToggler(navID) {
+      return debounce(function() {
+        $mdSidenav(navID)
+        .toggle()
+        .then(function () {
+          $log.debug("toggle " + navID + " is done");
+        });
+      }, 200);
+    }
+    function buildToggler(navID) {
+
+      return function() {
+        $mdSidenav(navID)
+        .toggle()
+        .then(function () {
+                  // User.postEdit();
+console.log(Valu.fun)
+return Valu.fun*/
+          // console.log(Valu.id)
+/*            var obj=$mdSidenav(navID);
+            var FRAM = obj.getElementById("id");
+            console.log(FRAM)*/
+                        // console.log($mdSidenav(navID).form)
+            // $log.debug("toggle " + navID + " is done");
+            // $scope.aid="22222";
+          /* console.log(aid)
+            console.log($scope.user.name)
+            console.log($scope.user.company)
+            console.log($scope.user.inn)
+            console.log($scope.user.amount)
+            console.log($scope.user.arpu)
+            console.log($scope.user.period)
+            console.log($scope.user.email)
+               $scope.aid=$scope.user.id,
+              $scope.aname=$scope.user.name,
+              $scope.acompany=$scope.user.company,
+              $scope.ainn=$scope.user.inn,
+              $scope.aamount=$scope.user.amount,
+              $scope.aarpu=$scope.user.arpu,
+              $scope.aperiod=$scope.user.period,
+              $scope.aemail=$scope.user.email*/
+/*            });
+      }
+    }
+  }]);*/
  kartotekaControllers.controller('LeftCtrl', ['$scope', '$timeout', '$mdSidenav', '$log',
   function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
-      $scope.clearInput();
+      // $scope.clearInput();
       $mdSidenav('left').close()
       .then(function () {
         $log.debug("close LEFT is done");
@@ -206,7 +271,7 @@ console.log("click "+$scope.aemail)
  kartotekaControllers.controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log',
   function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
-      $scope.clearInput();
+      // $scope.clearInput();
       $mdSidenav('right').close()
       .then(function () {
         $log.debug("close RIGHT is done");
